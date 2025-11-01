@@ -3,8 +3,6 @@ local builtin = require("telescope.builtin")
 
 telescope.setup({
   defaults = {
-    prompt_prefix = " ",
-    selection_caret = " ",
     path_display = { "truncate" },
     sorting_strategy = "ascending",
     layout_config = {
@@ -23,6 +21,7 @@ telescope.setup({
   pickers = {
     find_files = {
       hidden = true,
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
     },
   },
 })
