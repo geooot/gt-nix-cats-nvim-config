@@ -125,6 +125,7 @@
 	  nvim-treesitter-textobjects # AST traversal
 	  nvim-treesitter.withAllGrammars
 	  which-key-nvim
+	  tokyonight-nvim
 	];
       };
 
@@ -208,6 +209,8 @@
           gitPlugins = true;
           customPlugins = true;
           test = true;
+          lint = true;
+          format = true;
           example = {
             youCan = "add more than just booleans";
             toThisSet = [
