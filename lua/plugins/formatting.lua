@@ -9,4 +9,8 @@ require("conform").setup({
     markdown = { "prettierd", "prettier", stop_after_first = true },
     nix = { "nixfmt" },
   },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
 })
