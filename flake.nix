@@ -122,6 +122,7 @@
 	  blink-cmp # autocompletion
 	  conform-nvim # formatting
 	  nui-nvim # ui components?
+	  oil-nvim
 	  nvim-treesitter-textobjects # AST traversal
 	  nvim-treesitter.withAllGrammars
 	  which-key-nvim
