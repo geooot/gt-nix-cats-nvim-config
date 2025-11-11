@@ -3,7 +3,7 @@ local builtin = require("telescope.builtin")
 
 telescope.setup({
   defaults = {
-    path_display = { "truncate" },
+    path_display = { "smart" },
     sorting_strategy = "ascending",
     layout_config = {
       horizontal = {
@@ -21,7 +21,7 @@ telescope.setup({
   pickers = {
     find_files = {
       hidden = true,
-      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*", "--glob", "!**/package-lock.json", "--follow" },
     },
   },
 })
