@@ -17,6 +17,15 @@ telescope.setup({
       height = 0.80,
       preview_cutoff = 120,
     },
+    cache_picker = {
+      num_pickers = 10,
+    },
+    mappings = {
+      i = {
+        ["<S-Up>"] = require("telescope.actions").cycle_history_prev,
+        ["<S-Down>"] = require("telescope.actions").cycle_history_next,
+      },
+    },
   },
   pickers = {
     find_files = {
