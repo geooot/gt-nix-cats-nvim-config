@@ -8,6 +8,7 @@ require("conform").setup({
     json = { "prettierd", "prettier", stop_after_first = true },
     markdown = { "prettierd", "prettier", stop_after_first = true },
     nix = { "nixfmt" },
+    python = { "ruff_format" },
   },
   format_on_save = {
     timeout_ms = 500,

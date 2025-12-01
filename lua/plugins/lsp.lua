@@ -65,4 +65,20 @@ vim.lsp.config("tailwindcss", {
   on_attach = on_attach,
 })
 
-vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss" })
+vim.lsp.config("pyright", {
+  cmd = { "pyright-langserver", "--stdio" },
+  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyrightconfig.json", ".git" },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly",
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+})
+
+vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss", "pyright" })

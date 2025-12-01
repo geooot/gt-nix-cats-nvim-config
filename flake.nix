@@ -114,15 +114,18 @@
             format = with pkgs; [
               nixfmt-rfc-style
               prettierd
+              ruff
             ];
             lint = with pkgs; [
               eslint
+              ruff
             ];
             general = with pkgs; [
               ripgrep
               tailwindcss-language-server
               typescript-language-server
               lua-language-server
+              pyright
             ];
           };
 
