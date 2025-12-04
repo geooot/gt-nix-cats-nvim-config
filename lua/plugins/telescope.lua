@@ -31,6 +31,7 @@ telescope.setup({
     find_files = {
       hidden = true,
       find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*", "--glob", "!**/package-lock.json", "--follow" },
+      no_ignore = false,
     },
   },
 })
