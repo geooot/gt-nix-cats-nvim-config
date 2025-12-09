@@ -57,6 +57,7 @@ opt.wrap = false
 if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
   opt.foldmethod = "expr"
+  opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   opt.foldtext = ""
 else
   opt.foldmethod = "indent"
