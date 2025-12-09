@@ -135,12 +135,11 @@
             general = with pkgs.vimPlugins; [
               nvim-lspconfig
               nvim-lint
-              gitsigns-nvim
               snacks-nvim
               telescope-nvim # quick switcher + search
               telescope-fzf-native-nvim
-              plenary-nvim # async
               blink-cmp # autocompletion
+              plenary-nvim # async
               conform-nvim # formatting
               nui-nvim # ui components?
               oil-nvim
@@ -155,7 +154,9 @@
           # use with packadd and an autocommand in config to achieve lazy loading
           optionalPlugins = {
             gitPlugins = with pkgs.neovimPlugins; [ ];
-            general = with pkgs.vimPlugins; [ ];
+            general = with pkgs.vimPlugins; [
+              gitsigns-nvim
+            ];
           };
 
           # shared libraries to be added to LD_LIBRARY_PATH
