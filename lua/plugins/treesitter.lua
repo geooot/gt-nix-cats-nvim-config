@@ -5,8 +5,14 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function(args)
     local buf = args.buf
+    local lang = vim.treesitter.language.get_lang(args.match)
+    
+    if not lang then
+      return
+    end
 
-    if not pcall(vim.treesitter.start, buf) then
+    local ok = pcall(vim.treesitter.start, buf, lang)
+    if not ok then
       return
     end
 

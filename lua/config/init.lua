@@ -4,7 +4,4 @@ vim.g.maplocalleader = "\\"
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
-
-vim.schedule(function()
-  require("config.lazy")
-end)
+require("config.lazy")
