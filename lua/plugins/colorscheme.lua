@@ -4,6 +4,9 @@ require("tokyonight").setup({
     sidebars = "transparent",
     floats = "transparent",
   },
+  plugins = {
+    all = true,
+  },
 })
 
 vim.cmd.colorscheme("tokyonight")
