@@ -126,6 +126,7 @@
               typescript-language-server
               lua-language-server
               pyright
+              rust-analyzer
             ];
           };
 

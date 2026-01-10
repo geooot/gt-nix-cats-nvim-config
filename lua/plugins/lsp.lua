@@ -81,4 +81,21 @@ vim.lsp.config("pyright", {
   },
 })
 
-vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss", "pyright" })
+vim.lsp.config("rust_analyzer", {
+  cmd = { "rust-analyzer" },
+  root_markers = { "Cargo.toml", "rust-project.json", ".git" },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+})
+
+vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss", "pyright", "rust_analyzer" })
