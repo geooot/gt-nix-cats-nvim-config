@@ -128,6 +128,9 @@
               pyright
               rust-analyzer
             ];
+            ai = with pkgs; [
+              awscli2
+            ];
           };
 
           # This is for plugins that will load at startup without using packadd:
@@ -148,6 +151,9 @@
               nvim-treesitter.withAllGrammars
               which-key-nvim
               tokyonight-nvim
+            ];
+            ai = with pkgs.vimPlugins; [
+              minuet-ai-nvim
             ];
           };
 
@@ -235,6 +241,12 @@
               test = true;
               lint = true;
               format = true;
+              ai = {
+                enable = false;
+                provider = "bedrock";
+                model = "us.anthropic.claude-sonnet-4-20250514-v1:0";
+                awsProfile = "default";
+              };
               example = {
                 youCan = "add more than just booleans";
                 toThisSet = [
