@@ -9,4 +9,8 @@ require("tokyonight").setup({
   },
 })
 
-vim.cmd.colorscheme("tokyonight")
+if vim.o.background == "light" then
+  vim.cmd.colorscheme("tokyonight-day")
+else
+  vim.cmd.colorscheme("tokyonight")
+end
