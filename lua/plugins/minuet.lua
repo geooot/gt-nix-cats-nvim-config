@@ -41,19 +41,28 @@ if provider == "bedrock" then
       },
     },
   }
-  opts.curl_extra_args = function()
+  local function get_sigv4_args()
     local creds = vim.fn.system("aws configure export-credentials --profile " .. aws_profile .. " --format process")
     local parsed = vim.json.decode(creds)
-    local sigv4_args = {
+    local args = {
       "--aws-sigv4", "aws:amz:" .. region .. ":bedrock",
       "--user", parsed.AccessKeyId .. ":" .. parsed.SecretAccessKey,
     }
     if parsed.SessionToken then
-      table.insert(sigv4_args, "-H")
-      table.insert(sigv4_args, "x-amz-security-token: " .. parsed.SessionToken)
+      table.insert(args, "-H")
+      table.insert(args, "x-amz-security-token: " .. parsed.SessionToken)
     end
-    return sigv4_args
+    return args
   end
+
+  opts.curl_extra_args = {}
+
+  opts.provider_options.openai_compatible.transform = {
+    function(data)
+      require("minuet").config.curl_extra_args = get_sigv4_args()
+      return data
+    end,
+  }
 else
   opts.provider = provider
   opts.provider_options = {
