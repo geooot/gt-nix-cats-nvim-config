@@ -43,7 +43,15 @@ if provider == "bedrock" then
   }
   local function get_sigv4_args()
     local creds = vim.fn.system("aws configure export-credentials --profile " .. aws_profile .. " --format process --output json")
-    local parsed = vim.json.decode(creds)
+    if vim.v.shell_error ~= 0 then
+      vim.notify("minuet: aws credentials command failed (exit " .. vim.v.shell_error .. ")", vim.log.levels.ERROR)
+      return {}
+    end
+    local ok, parsed = pcall(vim.json.decode, creds)
+    if not ok then
+      vim.notify("minuet: failed to parse credentials JSON", vim.log.levels.ERROR)
+      return {}
+    end
     local args = {
       "--aws-sigv4", "aws:amz:" .. region .. ":bedrock",
       "--user", parsed.AccessKeyId .. ":" .. parsed.SecretAccessKey,
