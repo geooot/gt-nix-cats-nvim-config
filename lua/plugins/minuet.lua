@@ -42,7 +42,7 @@ if provider == "bedrock" then
     },
   }
   local function get_sigv4_args()
-    local creds = vim.fn.system("aws configure export-credentials --profile " .. aws_profile .. " --format process")
+    local creds = vim.fn.system("aws configure export-credentials --profile " .. aws_profile .. " --format process --output json")
     local parsed = vim.json.decode(creds)
     local args = {
       "--aws-sigv4", "aws:amz:" .. region .. ":bedrock",
