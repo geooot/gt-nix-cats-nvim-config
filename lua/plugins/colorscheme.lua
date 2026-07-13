@@ -9,8 +9,14 @@ require("tokyonight").setup({
   },
 })
 
-if vim.o.background == "light" then
-  vim.cmd.colorscheme("tokyonight-day")
-else
-  vim.cmd.colorscheme("tokyonight")
-end
+require("gruvbox").setup({
+  transparent_mode = true,
+})
+
+vim.cmd.colorscheme("gruvbox")
+
+-- if vim.o.background == "light" then
+--   vim.cmd.colorscheme("tokyonight-day")
+-- else
+--   vim.cmd.colorscheme("tokyonight")
+-- end

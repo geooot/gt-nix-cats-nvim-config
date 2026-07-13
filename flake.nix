@@ -151,6 +151,7 @@
               nvim-treesitter.withAllGrammars
               which-key-nvim
               tokyonight-nvim
+              gruvbox-nvim
             ];
             ai = with pkgs.vimPlugins; [
               minuet-ai-nvim
@@ -296,7 +297,7 @@
             name = defaultPackageName;
             packages = [ defaultPackage ];
             inputsFrom = [ ];
-            shellHook = '''';
+            shellHook = "";
           };
         };
 
