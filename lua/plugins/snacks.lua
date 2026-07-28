@@ -118,6 +118,8 @@ end, { desc = "Options" })
 vim.keymap.set("n", "<leader>sR", picker.resume, { desc = "Resume" })
 vim.keymap.set("n", "<leader>fg", picker.git_status, { desc = "Find Modified Files (Git)" })
 
+snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>ul")
+
 vim.keymap.set("n", "<leader>un", function()
   snacks.notifier.hide()
 end, { desc = "Dismiss All Notifications" })
