@@ -123,6 +123,7 @@
             general = with pkgs; [
               ripgrep
               fd
+              fzf
               tailwindcss-language-server
               typescript-language-server
               lua-language-server
@@ -141,6 +142,7 @@
               nvim-lspconfig
               nvim-lint
               snacks-nvim
+              fzf-lua
               blink-cmp # autocompletion
               plenary-nvim # async
               conform-nvim # formatting
