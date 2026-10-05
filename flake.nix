@@ -126,7 +126,7 @@
               fzf
               tailwindcss-language-server
               typescript-language-server
-              java-language-server
+              jdt-language-server
               lua-language-server
               pyright
               rust-analyzer

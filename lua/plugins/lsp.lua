@@ -98,4 +98,9 @@ vim.lsp.config("rust_analyzer", {
   },
 })
 
-vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss", "pyright", "rust_analyzer" })
+vim.lsp.config("jdtls", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss", "pyright", "rust_analyzer", "jdtls" })
